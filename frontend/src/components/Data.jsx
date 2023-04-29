@@ -19,7 +19,7 @@ export const Data = () => {
     const [reference_conversation, setReferenceConversation] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:3000/read?id=${text}`, requestOptions)
+        fetch(`https://llm-cite.onrender.com/read?id=${text}`, requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.status == 200) {

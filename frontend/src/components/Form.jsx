@@ -30,7 +30,7 @@ export const CiteForm = () => {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/insert", requestOptions)
+        fetch("https://llm-cite.onrender.com/insert", requestOptions)
             .then(response => response.json())
             .then(result => alert("localhost:5174/cites/" + result.id))
             .catch(error => console.log('error', error));
