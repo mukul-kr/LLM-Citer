@@ -1,0 +1,17 @@
+{
+  "name": "llm-citer",
+  "scripts": {
+    "start": "nodemon index.js",
+    "dev": "node index.js",
+    "build": "cd frontend && npm install && npm run build && cd .. && npm install && npm run dev"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
