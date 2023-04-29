@@ -16,6 +16,7 @@ function FormData() {
   const [formData, setFormData] = useState(null);
 
   useEffect(() => {
+    // fetch(`http://localhost:3000/cites/${id}`)
     fetch(`http://localhost:3000/cites/${id}`)
       .then((response) => response.json())
       .then((data) => {

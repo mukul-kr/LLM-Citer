@@ -1,9 +1,8 @@
 {
   "name": "llm-citer",
   "scripts": {
-    "start": "nodemon index.js",
-    "dev": "node index.js",
-    "build": "cd frontend && npm install && npm run build && cd .. && npm install && npm run dev"
+    "start": "node index.js",
+    "build": "cd frontend && npm install && npm run build && cd .. && npm install"
   },
   "dependencies": {
     "cors": "^2.8.5",
