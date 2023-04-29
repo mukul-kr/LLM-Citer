@@ -32,7 +32,7 @@ export const CiteForm = () => {
 
         fetch("https://llm-cite.onrender.com/insert", requestOptions)
             .then(response => response.json())
-            .then(result => alert("localhost:5174/cites/" + result.id))
+            .then(result => alert("https://llm-citer.vercel.app/cites/" + result.id))
             .catch(error => console.log('error', error));
 
     }
