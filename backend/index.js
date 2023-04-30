@@ -7,12 +7,14 @@ const AICiteSchema = require('./models/AICiteSchema');
 require('dotenv').config();
 app.use(express.json());
 app.use(
-  // cors({
-  //   origin: [
-  //     'https://llm-citer.vercel.app',
-  //   ],
-  // })
-  cors()
+  cors({
+    origin: [
+      'https://llm-citer.vercel.app',
+      'https://subtle-salmiakki-3c64f9.netlify.app',
+      'https://llm-citer-one.vercel.app',
+    ],
+  })
+  // cors()
 );
 
 mongoose.connect(process.env.MONGODB_URI, {

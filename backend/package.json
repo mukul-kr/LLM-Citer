@@ -1,10 +1,10 @@
 {
-  "name": "llm-citer",
+  "name": "llm-citer-backend",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "cd frontend && npm install && npm run build && cd .. && npm install"
+    "build": "npm insatll"
   },
   "dependencies": {
     "cors": "^2.8.5",
