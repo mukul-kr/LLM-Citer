@@ -12,6 +12,7 @@ app.use(
       'https://llm-citer.vercel.app',
       'https://subtle-salmiakki-3c64f9.netlify.app',
       'https://llm-citer-one.vercel.app',
+      'http://localhost:3000',
     ],
   })
   // cors()
@@ -76,8 +77,8 @@ app.use(
     healthy: serverStatus,
   })
 );
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log('Server is running on port 3000.');
+  console.log('Server is running on port 5000.');
 });
