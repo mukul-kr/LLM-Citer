@@ -11,13 +11,16 @@ export const CiteForm = () => {
   const [reference_conversation, setReferenceConversation] = useState('');
 
   async function insertData(data) {
-    const response = await fetch('http://localhost:3000/insert', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      'https://llm-citer-backend.onrender.com/insert',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -36,7 +39,7 @@ export const CiteForm = () => {
 
     insertData(data)
       .then((result) => {
-        alert('http://127.0.0.1:5173/cites/' + result.id);
+        alert(result.id);
         navigate(`/cites/${result.id}`);
       })
       .catch((error) => console.log('error', error));

@@ -17,7 +17,7 @@ function FormData() {
   const [formData, setFormData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/cites/${id}`)
+    fetch(`https://llm-citer-backend.onrender.com/cites/${id}`)
       .then((response) => response.json())
       .then((data) => {
         const { llm_model_name, date, exact_content, reference_converstaion } =
@@ -35,13 +35,25 @@ function FormData() {
   }, [id]);
 
   if (!formData) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <h1>ID: {id}</h1>
+        Loading...
+      </div>
+    );
   }
 
   return (
     <>
+      <h1>ID: {id}</h1>
       <Link to={`/`}>LLM Citer</Link>
-      <RenderedForm id={id} formData={formData} />
+      {formData ? (
+        <>
+          <RenderedForm id={id} formData={formData} />
+        </>
+      ) : (
+        <>{'something went wrong'}</>
+      )}
     </>
   );
 }
