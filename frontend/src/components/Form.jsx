@@ -10,36 +10,8 @@ export const CiteForm = () => {
   const [exact_content, setExactContent] = useState('');
   const [reference_conversation, setReferenceConversation] = useState('');
 
-  //   function handleSubmit() {
-  //     var myHeaders = new Headers();
-  //     myHeaders.append('Content-Type', 'application/json');
-
-      // var raw = JSON.stringify({
-      //   llm_model_name: llm_model,
-      //   date: date,
-      //   exact_content: exact_content,
-      //   reference_converstaion: reference_conversation,
-      // });
-
-  //     var requestOptions = {
-  //       method: 'POST',
-  //       headers: myHeaders,
-  //       body: raw,
-  //       redirect: 'follow',
-  //     };
-
-  //     fetch('http://localhost:3000/insert', requestOptions)
-  //       .then((response) => response.json())
-  //       .then((result) => {
-  //         alert('https://llm-citer.vercel.app/cites/' + result.id);
-  //       })
-  //       .catch((error) => console.log('error', error));
-  //   }
-
-  // We are disecting the req. here in two parts one will fetch the req. and other will handle the response and resirect our page to the FormData.jsx component at '/cites/:id'
   async function insertData(data) {
-    // const response = await fetch('http://localhost:3000/insert', {
-    const response = await fetch('https://llm-cite.onrender.com/insert', {
+    const response = await fetch('http://localhost:3000/insert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -64,10 +36,8 @@ export const CiteForm = () => {
 
     insertData(data)
       .then((result) => {
-        alert('https://llm-citer.vercel.app/cites/' + result.id);
-        // When user clicks ok on alert he will be redirected to formData page  with id intact on the page
-        // navigate(`/cites/${result.id}`);
-        window.location.href = `/cites/${result.id}`;
+        alert('http://127.0.0.1:5173/cites/' + result.id);
+        navigate(`/cites/${result.id}`);
       })
       .catch((error) => console.log('error', error));
   }

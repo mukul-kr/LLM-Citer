@@ -1,20 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
 const app = express();
 const AICiteSchema = require('./models/AICiteSchema');
 
 require('dotenv').config();
 app.use(express.json());
-app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://llm-citer.vercel.app',
-    'http://localhost:5174',
-    'http://localhost:5173',
-  ]
-}));
+app.use(
+  // cors({
+  //   origin: [
+  //     'https://llm-citer.vercel.app',
+  //   ],
+  // })
+  cors()
+);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -48,32 +47,9 @@ app.post('/insert', async (req, res) => {
   }
 });
 
-// app.get('/read', async (req, res) => {
-//   id = req.query.id;
-//   console.log(id);
-//   try {
-//     const formData = await AICiteSchema.findById(id);
-//     res.send({
-//       status: 200,
-//       data: formData,
-//     });
-//   } catch (err) {
-//     // console.log(err)
-//     res.send({
-//       status: 404,
-//       data: {},
-//     });
-//   }
-// });
-
-// We are writing the get req. with additional '/' like '/cites/:id' for the dynamic id
-app.get('/cites_internal/:id', async (req, res) => {
-  // id = req.params.id;
-  // console.log(id);
+app.get('/cites/:id', async (req, res) => {
   const data = await AICiteSchema.findById(req.params.id);
   if (data) {
-    // console.log("data :", data);
-
     res.status(200);
     res.send(data);
   } else {
@@ -81,28 +57,25 @@ app.get('/cites_internal/:id', async (req, res) => {
   }
 });
 
-// app.use(express.static('frontend/dist', { index: false }));
-
 const port = process.env.PORT || 3000;
 
 const serverStatus = () => {
-  return { 
-    state: 'up', 
-    dbState: mongoose.STATES[mongoose.connection.readyState] 
-  }
+  return {
+    state: 'up',
+    dbState: mongoose.STATES[mongoose.connection.readyState],
+  };
 };
 
+app.get('/', (req, res) => {
+  res.send('Hello, LLM_Citer!');
+});
 
-//  Plug into middleware.
-app.use('/api/uptime', require('express-healthcheck')({
-  healthy: serverStatus
-}));
-
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
-// });
-
+app.use(
+  '/api/uptime',
+  require('express-healthcheck')({
+    healthy: serverStatus,
+  })
+);
 
 app.listen(port, () => {
   console.log('Server is running on port 3000.');

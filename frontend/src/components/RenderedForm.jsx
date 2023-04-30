@@ -1,4 +1,3 @@
-// We are using this to disbale the eslint rule for prop-types
 /* eslint-disable react/prop-types */
 const RenderedForm = ({ id, formData }) => {
   return (

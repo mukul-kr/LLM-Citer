@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
 import RenderedForm from './RenderedForm';
 
 const AICiteFormSchema = mongoose.Schema({
@@ -16,13 +17,12 @@ function FormData() {
   const [formData, setFormData] = useState(null);
 
   useEffect(() => {
-    fetch(`https://llm-cite.onrender.com/cites_internal/${id}`)
-    // fetch(`http://localhost:3000/cites_internal/${id}`)
+    fetch(`http://localhost:3000/cites/${id}`)
       .then((response) => response.json())
       .then((data) => {
         const { llm_model_name, date, exact_content, reference_converstaion } =
           data;
-          console.log(data)
+        console.log(data);
         const formData = new AICiteSchema({
           llm_model_name,
           date,
