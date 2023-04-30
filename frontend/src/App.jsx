@@ -1,30 +1,27 @@
-import { Routes, Route } from 'react-router-dom'
-import { Home } from './components/Home'
-import { Data } from './components/Data'
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Home } from './components/Home';
 
 import Typography from '@mui/material/Typography';
 import { Container } from '@mui/material';
-
+import FormData from './components/FormData';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Container>
-        <Typography variant="h3" align='center' gutterBottom>
+        <Typography variant="h3" align="center" gutterBottom>
           Cite AI
         </Typography>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cites/:text" element={<Data />} />
+          <Route path="/cites/:id" element={<FormData />} />
         </Routes>
-
       </Container>
-    </>
-  )
+    </BrowserRouter>
+  );
 }
 
-export default App
-
+export default App;
 
 // import React from "react";
 // import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
@@ -48,7 +45,6 @@ export default App
 // //   let { slug } = useParams();
 // //   return <div>Now showing post {slug}</div>;
 // // }
-
 
 // // A component that renders a list of links to different messages
 // function Home() {
