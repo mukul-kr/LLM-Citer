@@ -7,7 +7,14 @@ const AICiteSchema = require('./models/AICiteSchema');
 
 require('dotenv').config();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://llm-citer.vercel.app',
+    'http://localhost:5174',
+    'http://localhost:5173',
+  ]
+}));
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
