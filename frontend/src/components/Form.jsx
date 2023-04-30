@@ -14,12 +14,12 @@ export const CiteForm = () => {
   //     var myHeaders = new Headers();
   //     myHeaders.append('Content-Type', 'application/json');
 
-  //     var raw = JSON.stringify({
-  //       llm_model_name: llm_model,
-  //       date: date,
-  //       exact_content: exact_content,
-  //       reference_converstaion: reference_conversation,
-  //     });
+      // var raw = JSON.stringify({
+      //   llm_model_name: llm_model,
+      //   date: date,
+      //   exact_content: exact_content,
+      //   reference_converstaion: reference_conversation,
+      // });
 
   //     var requestOptions = {
   //       method: 'POST',
@@ -66,7 +66,7 @@ export const CiteForm = () => {
       .then((result) => {
         alert('https://llm-citer.onrender.com/cites/' + result.id);
         // When user clicks ok on alert he will be redirected to formData page  with id intact on the page
-        navigate(`/cites/${result.id}`);
+        // navigate(`/cites/${result.id}`);
       })
       .catch((error) => console.log('error', error));
   }
