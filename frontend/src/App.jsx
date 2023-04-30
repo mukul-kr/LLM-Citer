@@ -14,8 +14,8 @@ function App() {
           Cite AI
         </Typography>
         <Routes>
-          <Route path="/cites" element={<WrongPage />} />
-          <Route path="/cites/:id" element={<FormData />} />
+        <Route path="/cites/:id" element={<FormData />} />
+        <Route path="/cites" element={<WrongPage />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Container>
