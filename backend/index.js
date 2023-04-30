@@ -59,8 +59,6 @@ app.get('/cites/:id', async (req, res) => {
   }
 });
 
-const port = process.env.PORT || 3000;
-
 const serverStatus = () => {
   return {
     state: 'up',
@@ -78,6 +76,7 @@ app.use(
     healthy: serverStatus,
   })
 );
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log('Server is running on port 3000.');
