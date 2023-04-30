@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "npm insatll"
+    "build": "npm install"
   },
   "dependencies": {
     "cors": "^2.8.5",
