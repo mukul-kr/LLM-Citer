@@ -60,10 +60,10 @@ app.post('/insert', async (req, res) => {
 // });
 
 // We are writing the get req. with additional '/' like '/cites/:id' for the dynamic id
-app.get('/cites_internal/', async (req, res) => {
-  id = req.query.id;
+app.get('/cites_internal/:id', async (req, res) => {
+  // id = req.params.id;
   // console.log(id);
-  const data = await AICiteSchema.findById(id);
+  const data = await AICiteSchema.findById(req.params.id);
   if (data) {
     // console.log("data :", data);
 
