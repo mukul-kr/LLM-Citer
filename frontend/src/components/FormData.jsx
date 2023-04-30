@@ -17,11 +17,12 @@ function FormData() {
 
   useEffect(() => {
     // fetch(`http://localhost:3000/cites/${id}`)
-    fetch(`https://llm-citer.onrender.com/cites_internal/${id}`)
+    fetch(`https://llm-cite.onrender.com/read?id=${id}`)
       .then((response) => response.json())
       .then((data) => {
         const { llm_model_name, date, exact_content, reference_converstaion } =
           data;
+          console.log(data)
         const formData = new AICiteSchema({
           llm_model_name,
           date,
