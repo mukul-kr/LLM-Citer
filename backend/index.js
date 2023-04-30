@@ -74,13 +74,28 @@ app.get('/cites_internal/', async (req, res) => {
   }
 });
 
-app.use(express.static('frontend/dist', { index: false }));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
-});
+// app.use(express.static('frontend/dist', { index: false }));
 
 const port = process.env.PORT || 3000;
+
+const serverStatus = () => {
+  return { 
+    state: 'up', 
+    dbState: mongoose.STATES[mongoose.connection.readyState] 
+  }
+};
+
+
+//  Plug into middleware.
+app.use('/api/uptime', require('express-healthcheck')({
+  healthy: serverStatus
+}));
+
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+// });
+
 
 app.listen(port, () => {
   console.log('Server is running on port 3000.');
