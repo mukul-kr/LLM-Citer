@@ -39,7 +39,7 @@ export const CiteForm = () => {
   // We are disecting the req. here in two parts one will fetch the req. and other will handle the response and resirect our page to the FormData.jsx component at '/cites/:id'
   async function insertData(data) {
     // const response = await fetch('http://localhost:3000/insert', {
-    const response = await fetch('https://llm-citer.onrender.com/insert', {
+    const response = await fetch('https://llm-cite.onrender.com/insert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
