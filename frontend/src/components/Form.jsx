@@ -64,9 +64,10 @@ export const CiteForm = () => {
 
     insertData(data)
       .then((result) => {
-        alert('https://llm-citer.onrender.com/cites/' + result.id);
+        alert('https://llm-citer.vercel.app/cites/' + result.id);
         // When user clicks ok on alert he will be redirected to formData page  with id intact on the page
         // navigate(`/cites/${result.id}`);
+        window.location.href = `/cites/${result.id}`;
       })
       .catch((error) => console.log('error', error));
   }

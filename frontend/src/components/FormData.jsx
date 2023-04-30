@@ -16,8 +16,8 @@ function FormData() {
   const [formData, setFormData] = useState(null);
 
   useEffect(() => {
-    // fetch(`http://localhost:3000/cites/${id}`)
-    fetch(`https://llm-cite.onrender.com/cites_internal?id=${id}`)
+    fetch(`https://llm-cite.onrender.com/cites_internal/${id}`)
+    // fetch(`http://localhost:3000/cites_internal/${id}`)
       .then((response) => response.json())
       .then((data) => {
         const { llm_model_name, date, exact_content, reference_converstaion } =
