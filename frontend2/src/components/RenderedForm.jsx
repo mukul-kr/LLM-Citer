@@ -71,7 +71,7 @@ const RenderedForm = ({ id, formData }) => {
             InputProps={{
               readOnly: true,
             }}
-            value={formData.reference_conversation}
+            value={formData.reference_converstaion}
             style={{ width: '100%' }}
             fullWidth
           />
