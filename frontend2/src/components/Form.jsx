@@ -39,7 +39,7 @@ export const CiteForm = () => {
 
     insertData(data)
       .then((result) => {
-        alert(result.id);
+        alert("https://llm-citer.vercel.app/cites/"+result.id);
         navigate(`/cites/${result.id}`);
       })
       .catch((error) => console.log('error', error));
