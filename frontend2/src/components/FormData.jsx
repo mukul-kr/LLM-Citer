@@ -46,7 +46,7 @@ function FormData() {
   return (
     <>
       <h1>ID: {id}</h1>
-      <Link to={`/`}>LLM Citer</Link>
+      {/* <Link to={`/`}>LLM Citer</Link> */}
       {formData ? (
         <>
           <RenderedForm id={id} formData={formData} />
