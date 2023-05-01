@@ -14,7 +14,7 @@ Just put model name you have used in the LLM Model section, provide it the date 
 
 ## How to use
 
-You can use this tool in two ways. You can either use the [online version](https://llm-citer.herokuapp.com/) or you can use the offline version. To use the offline version, you need to have [Node.js](https://nodejs.org/en/) installed in your system. Then you can clone this repository and run the following commands:
+You can use this tool in two ways. You can either use the [online version](https://llm-citer.vercel.app/) or you can use the offline version. To use the offline version, you need to have [Node.js](https://nodejs.org/en/) installed in your system. Then you can clone this repository and run the following commands:
 
 ```bash
 cd backend && npm install && npm run dev
