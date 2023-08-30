@@ -14,7 +14,7 @@
     "@emotion/styled": "^11.10.8",
     "@mui/material": "^5.12.2",
     "react-router-dom": "^6.11.0",
-    "mongoose": "^7.1.0"
+    "mongoose": "^7.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
